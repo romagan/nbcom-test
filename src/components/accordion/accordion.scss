@@ -1,0 +1,150 @@
+.btn {
+    position: relative;
+
+    padding: 0;
+    display: inline-block;
+
+    font-family: $font-primary;
+    font-size: 14px;
+    letter-spacing: 0.18px;
+    font-weight: 400;
+    color: $color-text;
+    text-decoration: none;
+
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+
+    transition: $speed ease-in-out;
+
+    &[disabled] {
+        cursor: default;
+        opacity: 0.5;
+    }
+
+    &:hover {
+        transition: $speed ease-in-out;
+    }
+
+    &_block {
+        display: block;
+        width: 100%;
+    }
+
+    &_accent {
+        padding: 12px;
+
+        line-height: $unit*2;
+        text-align: center;
+        color: $color-white;
+
+        background-color: $color-accent;
+
+        &:hover {
+            color: $color-white;
+
+            background-color: $color-accentHover;
+        }
+
+        &:focus,
+        &:active {
+            color: $color-white;
+
+            background-color: $color-accentHover;
+            opacity: 0.8;
+        }
+
+        @media (min-width: $tablet) {
+            padding: $unit*2;
+        }
+    }
+
+    &_bordered {
+        padding: 11px;
+        
+        line-height: 16px;
+        text-align: center;
+        text-decoration: none;
+        color: $color-accentHover;
+
+        background-color: $color-white;
+        border: 1px solid $color-accent;
+
+        @media (min-width: $tablet) {
+            padding: 15px;
+        }
+
+        &:hover {
+            color: $color-white;
+
+            background-color: $color-accent;
+        }
+
+        &:focus,
+        &:active {
+            color: $color-white;
+            
+            background-color: $color-accent;
+            opacity: 0.8;
+        }
+    }
+}
+
+.accordion__btn {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: $unit*2;
+	padding: $unit;
+
+	font-weight: 600;
+	font-size: 13px;
+	line-height: $unit*3;
+	color: #848388;
+	text-align: left;
+	text-transform: uppercase;
+
+	border-top: 1px solid #D0CDCC;
+	border-bottom: 1px solid #D0CDCC;
+
+	&::after {
+		content: "";
+
+		display: inline-block;
+		padding: $unit/4;
+		width: $unit;
+		height: $unit;
+		margin-left: $unit*2;
+		margin-bottom: $unit/2;
+		margin-right: $unit/2;
+
+		border: solid #848388;
+		border-width: 0 $unit/4 $unit/4 0;
+
+		transform: rotate(-45deg);
+		transition: 0.4s;
+	}
+
+	&_active {
+		&::after {
+			transform: rotate(45deg);
+			transition: 0.4s;
+		}
+	}
+	
+	& + .accordion__content {
+		opacity: 1;
+
+		transition: 0.4s;
+	}
+}
+
+.accordion__content {
+	padding: 0 $unit;
+	overflow: hidden;
+	opacity: 0;
+
+    transition: 0.4s;
+}

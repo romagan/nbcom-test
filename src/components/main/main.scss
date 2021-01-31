@@ -1,0 +1,63 @@
+.params {
+    @media (min-width: 1280px) {
+        margin: 0 auto;
+        max-width: 60%;
+    }
+}
+
+.check-btn {
+    margin-top: $unit*2;
+    margin-bottom: $unit*4;
+
+    text-align: right;
+    
+    button {
+        position: relative;
+
+        padding: 12px;
+        display: inline-block;
+
+        font-family: $font-primary;
+        font-size: 14px;
+        letter-spacing: 0.18px;
+        font-weight: 400;
+        text-decoration: none;
+        line-height: $unit*2;
+        text-align: center;
+        color: $color-white;
+
+        border: 0;
+        border-radius: 5px;
+        background-color: $color-accent;
+        cursor: pointer;
+        user-select: none;
+        outline: none;
+
+        transition: $speed ease-in-out;
+
+        &[disabled] {
+            cursor: default;
+            opacity: 0.5;
+        }
+
+        &:hover {
+            color: $color-white;
+
+            background-color: $color-accentHover;
+
+            transition: $speed ease-in-out;
+        }
+
+        &:focus,
+        &:active {
+            color: $color-white;
+
+            background-color: $color-accentHover;
+            opacity: 0.8;
+        }
+
+        @media (min-width: $tablet) {
+            padding: $unit*2;
+        }
+    }
+}

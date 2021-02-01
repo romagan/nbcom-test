@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<header-block></header-block>
+		<header-block :isTotal="isTotal"></header-block>
 		<main class="main">
 			<main-block v-if="!isTotal" @total="isTotal = true"></main-block>
 			<total v-else></total>

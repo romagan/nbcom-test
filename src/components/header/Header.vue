@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <div class="container">
-            <h1>Выберите настройки</h1>
+            <h1>{{ isTotal ? `Результат` : `Выберите настройки`}}</h1>
         </div>
     </header>
 </template>
@@ -13,7 +13,7 @@
             
         },
         props: {
-            
+            isTotal: Boolean
         },
         data() {
             return {

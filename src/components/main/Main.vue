@@ -47,8 +47,8 @@
         created() {
             const api = new ApiService();
             this.params = api.data;
-            api.getResource().then(() => {
-            }).catch((err) => console.log(err, 'eee'))
+            // api.getResource().then(() => {
+            // }).then((res) => {})
         },
         methods: {
             onToggleItem(e, i) {

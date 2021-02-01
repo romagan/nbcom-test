@@ -1,0 +1,61 @@
+.radio {
+    position: relative;
+
+    padding-left: 4*$unit;
+    margin-bottom: $unit*3;
+}
+
+.radio__label {
+    cursor: pointer;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: 3px;
+        left: 0;
+        z-index: 1;
+
+        height: 2*$unit;
+        width: 2*$unit;
+
+        border: 1px solid #D0CDCC;
+        border-radius: 50%;
+
+        cursor: pointer;
+    }
+
+    &::after {
+        content: "";
+
+        position: absolute;
+        left: 2px;
+        top: 5px;
+        z-index: 2;
+
+        height: 1.5*$unit;
+        width: 1.5*$unit;
+
+        border-radius: 50%;
+        background-color: $color-accent;
+        opacity: 0;
+
+        transition: $speed;
+    }
+}
+
+input:checked ~ .radio__label{
+    cursor: default;
+}
+
+input:checked ~ .radio__label:after {
+    opacity: 1;
+
+    transition: $speed;
+}
+
+
+input:disabled ~ .radio__label {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

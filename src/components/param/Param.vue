@@ -1,33 +1,27 @@
 <template>
-    <div v-if="data.config">
-        <ul class="radio-group">
-            <!-- eslint-disable-next-line -->
-            <li v-for="(param, i) in data.config">
-                <div class="radio">
-                    <input class="visually-hidden"
-                        :value="param.text"
-                        type="radio"
-                        :id="`radio-${data.code}-${i}`"
-                        :name="data.code"
-                        v-model="value"
-                        :disabled="param.add === false ? true : false"
-                        @change="onChangeListener(param)"
-                        />
-                    <label class="radio__label"
-                        :for="`radio-${data.code}-${i}`">
-                        {{ param.text }}
-                    </label>
-                </div>
-            </li>
-        </ul>
-    </div>
+    <ul class="radio-group">
+        <!-- eslint-disable-next-line -->
+        <li v-for="(item, i) in data.config">
+            <div class="radio">
+                <input
+                    class="visually-hidden"
+                    type="radio"
+                    :id="`radio-${data.code}-${i}`"
+                    :name="data.code"
+                    :value="item.text"
+                    v-model="value"
+                    @change="onChangeListener(item)">
+                <label class="radio__label" :for="`radio-${data.code}-${i}`">{{ item.text }}</label>
+            </div>
+        </li>
+    </ul>
 </template>
-        
+
 <script>
     export default {
         name: `Param`,
         components: {
-            
+
         },
         props: {
             data: Object
@@ -38,23 +32,26 @@
             }
         },
         computed: {
-            
+
         },
         created() {
             this.changeValue(this.data.config[0]);
         },
         methods: {
             onChangeListener(value) {
-                this.$nextTick(() => this.changeValue(value));
+                this.$nextTick(() => {
+                    this.changeValue(value);
+                })
             },
             changeValue(value) {
-                this.$store.dispatch(`params/addParam`, {
+                this.$store.dispatch('params/addParam', {
+                    'type': value.bundle ? 'kit' : 'param',
                     'name': this.data.title,
-                    'value': value.text,
-                    'type': value.bundle ? 'kit' : 'param'
-                    });
+                    'value': value.text
+                })
             }
-
         }
     }
 </script>
+
+<style src="./param.scss" lang="scss"></style>

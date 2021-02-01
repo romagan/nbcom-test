@@ -90,55 +90,55 @@
             opacity: 0.8;
         }
     }
-}
 
-.accordion__btn {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: $unit*2;
-	padding: $unit;
-
-	font-weight: 600;
-	font-size: 13px;
-	line-height: $unit*3;
-	color: #848388;
-	text-align: left;
-	text-transform: uppercase;
-
-	border-top: 1px solid #D0CDCC;
-	border-bottom: 1px solid #D0CDCC;
-
-	&::after {
-		content: "";
-
-		display: inline-block;
-		padding: $unit/4;
-		width: $unit;
-		height: $unit;
-		margin-left: $unit*2;
-		margin-bottom: $unit/2;
-		margin-right: $unit/2;
-
-		border: solid #848388;
-		border-width: 0 $unit/4 $unit/4 0;
-
-		transform: rotate(-45deg);
-		transition: 0.4s;
-	}
-
-	&_active {
-		&::after {
-			transform: rotate(45deg);
-			transition: 0.4s;
-		}
-	}
-	
-	& + .accordion__content {
-		opacity: 1;
-
-		transition: 0.4s;
-	}
+    &.accordion__btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: $unit*2;
+        padding: $unit;
+    
+        font-weight: 600;
+        font-size: 13px;
+        line-height: $unit*3;
+        color: #848388;
+        text-align: left;
+        text-transform: uppercase;
+    
+        border-top: 1px solid #D0CDCC;
+        border-bottom: 1px solid #D0CDCC;
+    
+        &::after {
+            content: "";
+    
+            display: inline-block;
+            padding: $unit/4;
+            width: $unit;
+            height: $unit;
+            margin-left: $unit*2;
+            margin-bottom: $unit/2;
+            margin-right: $unit/2;
+    
+            border: solid #848388;
+            border-width: 0 $unit/4 $unit/4 0;
+    
+            transform: rotate(-45deg);
+            transition: 0.4s;
+        }
+    
+        &_active {
+            &::after {
+                transform: rotate(45deg);
+                transition: 0.4s;
+            }
+        }
+        
+        & + .accordion__content {
+            opacity: 1;
+    
+            transition: 0.4s;
+        }
+    }
 }
 
 .accordion__content {

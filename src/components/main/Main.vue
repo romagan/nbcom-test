@@ -47,9 +47,8 @@
         created() {
             const api = new ApiService();
             this.params = api.data;
-            // api.getResource().then((res) => {
-            //     console.log(res)
-            // })
+            api.getResource().then(() => {
+            })
         },
         methods: {
             onToggleItem(e, i) {

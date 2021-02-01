@@ -29,6 +29,7 @@
 
         },
         props: {
+            i: Number,
             title: String,
             component: String,
             data: [Array, Object],
@@ -55,7 +56,7 @@
 
             if (this.isOpened) {
                 $content.style.maxHeight = `${this.contentHeight}px`;
-                this.$emit(`toggle`, this);
+                this.$emit(`toggle`, this, this.i);
             } else {
                 $content.style.maxHeight = 0;
             }
@@ -67,12 +68,19 @@
                 $content.style.maxHeight = this.isOpened ?  0 : `${this.contentHeight}px`;
 
                 if (!this.isOpened) {
-                    this.$emit(`toggle`, this);
+                    this.$emit(`toggle`, this, this.i);
                 } else {
-                    this.$emit(`toggle`, null);
+                    this.$emit(`toggle`, null, this.i);
                 }
 
                 this.isOpened = !this.isOpened;
+            },
+            closeAccordion() {
+                const $content = this.$refs.accordion_content;
+
+                $content.style.maxHeight = this.isOpened ?  0 : `${this.contentHeight}px`;
+
+                this.isOpened = false;
             },
             emittedEvent(prop) {
                 this.$emit('emittedEvent', prop)

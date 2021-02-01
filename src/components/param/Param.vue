@@ -6,10 +6,11 @@
                 <input
                     class="visually-hidden"
                     type="radio"
+                    v-model="value"
                     :id="`radio-${data.code}-${i}`"
                     :name="data.code"
                     :value="item.text"
-                    v-model="value"
+                    :disabled="item.add === false ? true : false"
                     @change="onChangeListener(item)">
                 <label class="radio__label" :for="`radio-${data.code}-${i}`">{{ item.text }}</label>
             </div>
@@ -39,9 +40,7 @@
         },
         methods: {
             onChangeListener(value) {
-                this.$nextTick(() => {
-                    this.changeValue(value);
-                })
+                this.$nextTick(() => this.changeValue(value))
             },
             changeValue(value) {
                 this.$store.dispatch('params/addParam', {

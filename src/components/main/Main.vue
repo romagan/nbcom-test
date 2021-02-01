@@ -8,6 +8,7 @@
                 :title="param.title"
                 :data="param"
                 :startOpened="i === 0 ? true : false"
+                :i="i"
                 @toggle="onToggleItem"
                 >
             </accordion>
@@ -36,7 +37,8 @@
         data() {
             return {
                 params: null,
-                activeParam: null
+                activeParam: null,
+                activeIndex: null
             }
         },
         computed: {
@@ -50,14 +52,13 @@
             // })
         },
         methods: {
-            onToggleItem(e) {
-                
-                if (this.activeParam) {
-                    console.log(e)
-                    this.activeParam.toggleAccordion();
+            onToggleItem(e, i) {
+                if (this.activeParam && i !== this.activeIndex) {
+                    this.activeParam.closeAccordion();
                 }
 
                 this.activeParam = e;
+                this.activeIndex = i
             }
         }
     }

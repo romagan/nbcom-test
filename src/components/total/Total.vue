@@ -12,8 +12,8 @@
                 <tbody>
                     <!-- eslint-disable-next-line -->
                     <tr v-for="(value, name) in params">
-                        <td>{{ value }}</td>
                         <td>{{ name }}</td>
+                        <td>{{ value }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -29,8 +29,8 @@
                 <tbody>
                     <!-- eslint-disable-next-line -->
                     <tr v-for="(value, name) in kit">
-                        <td>{{ value }}</td>
                         <td>{{ name }}</td>
+                        <td>{{ value }}</td>
                     </tr>
                 </tbody>
             </table>
